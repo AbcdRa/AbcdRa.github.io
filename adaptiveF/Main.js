@@ -2,18 +2,18 @@ let currentIndex = 0
 let currentTree
 let decode = []
 let char = []
-let code = "TEST"
+let code = document.getElementById("in").value 
 
 function reset() {
     currentIndex = 0
     currentTree = undefined
     decode = []
     char = []
-    code = "TEST"
+    code = document.getElementById("in").value 
 }
 
 function main() {
-
+    code = document.getElementById("in").value 
     if(currentIndex >= code.length) return
     if(!currentTree) {
         code = document.getElementById("in").value 
