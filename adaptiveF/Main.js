@@ -6,7 +6,7 @@ let code = "TEST"
 
 function reset() {
     currentIndex = 0
-    currentTree
+    currentTree = undefined
     decode = []
     char = []
     code = "TEST"
