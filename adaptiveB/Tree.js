@@ -172,10 +172,11 @@ class Tree {
         let currentNode = this.root
         let isBreak = false
         let i = 0
-        while(!leaf && i < copy_code.length && !isBreak) {
+        while(i < copy_code.length && !isBreak) {
             if(copy_code[i]==="0") {
                 if(currentNode.left ) {
                     currentNode = currentNode.left
+                    leaf = currentNode
                     i++
                 }
                 else {
@@ -186,6 +187,7 @@ class Tree {
             else if(copy_code[i]==="1") {
                 if(currentNode.right) {
                     currentNode = currentNode.right
+                    leaf = currentNode
                     i++
                 }
                 else {
