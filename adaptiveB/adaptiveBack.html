@@ -7,18 +7,18 @@
     <script type="text/javascript" src="https://unpkg.com/vis-network@latest/peer/umd/vis-network.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/vis-network/styles/vis-network.min.css" />
     <script src="Tree.js"></script>
-    <title>Адаптивное кодирование Хаффмана</title>
+    <title>Адаптивное декодирование Хаффмана</title>
 </head>
 <body>
-    <p>Вsходная последовательность</p>
-    <input type="text" id="in" value="abccdddd">
-    <button onclick="main()">Адаптивное кодирование Хаффмана</button>
+    <p>Входная последовательность</p>
+    <input type="text" id="in" value="'A'0'B'00'C'00111101">
+    <button onclick="main()">Адаптивное декодирование Хаффмана</button>
     <button onclick="reset()">Сбросить</button>
     <div id="out"></div>
-    НЕБАЛАНСИРОВАННОЕ:
+    БАЛАНСИРОВАННОЕ:
     <div id="mynetwork1"></div>
     <br>
-    БАЛАНСИРОВАННОЕ:
+    НЕБАЛАНСИРОВАННОЕ:
     <div id="mynetwork2"></div>
     <script src="Main.js"></script>
 </body>

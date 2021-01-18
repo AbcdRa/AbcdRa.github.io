@@ -2,7 +2,7 @@ let currentIndex = 0
 let currentTree
 let decode = []
 let char = []
-let code = document.getElementById("in").value 
+let code = "TEST"
 
 function reset() {
     currentIndex = 0
@@ -12,37 +12,33 @@ function reset() {
     code = document.getElementById("in").value 
 }
 
-function main() {
-    code = document.getElementById("in").value
-    if(currentIndex >= code.length) return
+function main() { 
+    if(code.length <= 0) return
     if(!currentTree) {
-        code = document.getElementById("in").value 
+        code = document.getElementById("in").value.replaceAll("'","")
         currentTree = new Tree(new Leaf(code[0],1))
         char.push(code[0])
-        decode.push(`'${code[0]}'`)
+        decode.push(`${code[0]}`)
         code = code.substring(1)
     }
-    if(code !== document.getElementById("in").value.substring(1)) {
-        code = document.getElementById("in").value.substring(1)
+    let leaf = currentTree.getLeaf(code)
+    code = leaf[1]
+    leaf = leaf[0]
+    if(leaf.name) {
+        decode.push(leaf.name)
+        currentTree.addWeight(leaf, 1)
     }
-    let ch = code[currentIndex]
-        if(!char.includes(ch)) {
-            currentTree.addLeaf(new Leaf(ch,1))
-            char.push(ch)
-            let chCode = currentTree.findLeaf(ch).code
-            decode.push(chCode.substring(0,chCode.length-1) + `'${ch}'`)
-        }
-        else {
-            currentTree.addWeight(ch,1)
-            let chCode = currentTree.findLeaf(ch).code
-            decode.push(chCode)
-        }
+    else {
+        decode.push(leaf)
+        currentTree.addLeaf(new Leaf(leaf, 1))
+    }
     
     document.getElementById("out").innerHTML = decode.toString().replaceAll(","," ")
-    buildTrees(LeavesToNodes(currentTree.getNodes()), currentTree.getConections(), document.getElementById("mynetwork1"))
-    currentTree.balancing()
     buildTrees(LeavesToNodes(currentTree.getNodes()), currentTree.getConections(), document.getElementById("mynetwork2"))
+    currentTree.balancing()
+    buildTrees(LeavesToNodes(currentTree.getNodes()), currentTree.getConections(), document.getElementById("mynetwork1"))
     currentIndex++
+    document.getElementById("in").value = code
 }
 
 
@@ -69,14 +65,13 @@ function buildTrees(nodes, connections, container) {
     // create an array with edges
     var edges = new vis.DataSet(connections);
 
-    // create a network
     var data = {
     nodes: nodes,
     edges: edges
     };
     var options = {
         autoResize: true,
-        height: "400px",
+        height: "500px",
         edges: {
           smooth: {
             type: "cubicBezier",
