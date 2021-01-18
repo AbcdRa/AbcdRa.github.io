@@ -72,6 +72,7 @@ function buildTrees(nodes, connections, container) {
     var options = {
         autoResize: true,
         height: "500px",
+        width: "500px",
         edges: {
           smooth: {
             type: "cubicBezier",

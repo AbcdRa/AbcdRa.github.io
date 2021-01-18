@@ -15,11 +15,14 @@
     <button onclick="main()">Адаптивное кодирование Хаффмана</button>
     <button onclick="reset()">Сбросить</button>
     <div id="out"></div>
-    НЕБАЛАНСИРОВАННОЕ:
-    <div id="mynetwork1"></div>
-    <br>
-    БАЛАНСИРОВАННОЕ:
-    <div id="mynetwork2"></div>
+    <div style="overflow:hidden;width:1200px">
+        <div style="width:500px;display:inline-block;">БАЛАНСИРОВАННОЕ</div>
+        <div style="width:500px;display:inline-block;">НЕБАЛАНСИРОВАННОЕ</div>
+    </div>
+    <div style="overflow:hidden;width:1200px">
+        <div id="mynetwork1" style="width:500px;display:inline-block;"></div>
+        <div id="mynetwork2" style="width:500px;display:inline-block;"></div>
+    </div>
     <script src="Main.js"></script>
 </body>
 </html>
