@@ -13,7 +13,7 @@ function reset() {
 }
 
 function main() {
-    code = document.getElementById("in").value 
+    code = document.getElementById("in").value
     if(currentIndex >= code.length) return
     if(!currentTree) {
         code = document.getElementById("in").value 
@@ -21,6 +21,9 @@ function main() {
         char.push(code[0])
         decode.push(code[0])
         code = code.substring(1)
+    }
+    if(code !== document.getElementById("in").value.substring(1)) {
+        code = document.getElementById("in").value.substring(1)
     }
     let ch = code[currentIndex]
         if(!char.includes(ch)) {
