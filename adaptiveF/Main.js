@@ -4,6 +4,14 @@ let decode = []
 let char = []
 let code = "TEST"
 
+function reset() {
+    currentIndex = 0
+    currentTree
+    decode = []
+    char = []
+    code = "TEST"
+}
+
 function main() {
 
     if(currentIndex >= code.length) return
