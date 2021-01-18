@@ -112,12 +112,18 @@ function leafToNode(leaf, level) {
 function decoding(els) {
     let code = document.getElementById("code").value
     let decode = ""
+    let countOverload = 1000
     while(code.length > 0) {
+        countOverload--
         for(el of els) {
             if(code.startsWith(el.code)) {
                 decode += el.name
                 code = code.substring(el.code.length)
             }
+        }
+        if(countOverload==0) {
+            decode = decode+"  НОРМАЛЬНО НЕ ДЕКОДИРУЕТСЯ!!!, ошибка в кодовом слове"
+            break
         }
     }
     return decode

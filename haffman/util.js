@@ -7,7 +7,7 @@ function find2mins(list) {
         let minimum1 = {prob:2}
         let minIndex1 = 0
         list.forEach((el, i) => {
-            if(el.prob < minimum1.prob) {
+            if(el.prob <= minimum1.prob) {
                 minimum1 = el
                 minIndex1 = i
             }
@@ -16,7 +16,7 @@ function find2mins(list) {
         let minimum2 = {prob:2}
         let minIndex2 = 0
         list.forEach((el, i) => {
-            if(el.prob < minimum2.prob) {
+            if(el.prob <= minimum2.prob) {
                 minimum2 = el
                 minIndex2 = i
             }
