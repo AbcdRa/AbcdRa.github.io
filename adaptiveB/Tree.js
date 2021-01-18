@@ -186,11 +186,11 @@ class Tree {
             else if(copy_code[i]==="1") {
                 if(currentNode.right) {
                     currentNode = currentNode.right
+                    i++
                 }
                 else {
                     isBreak = true
                     leaf = currentNode
-                    i++
                 }
             }
             else {

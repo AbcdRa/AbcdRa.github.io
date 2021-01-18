@@ -26,18 +26,20 @@ function main() {
         code = document.getElementById("in").value.substring(1)
     }
     let ch = code[currentIndex]
-        if(!char.includes(ch)) {
-            currentTree.addLeaf(new Leaf(ch,1))
-            char.push(ch)
-            let chCode = currentTree.findLeaf(ch).code
-            decode.push(chCode.substring(0,chCode.length-1) + `'${ch}'`)
-        }
-        else {
-            currentTree.addWeight(ch,1)
-            let chCode = currentTree.findLeaf(ch).code
-            decode.push(chCode)
-        }
-    
+    if(!ch) return
+
+    if(!char.includes(ch)) {
+        currentTree.addLeaf(new Leaf(ch,1))
+        char.push(ch)
+        let chCode = currentTree.findLeaf(ch).code
+        decode.push(chCode.substring(0,chCode.length-1) + `'${ch}'`)
+    }
+    else {
+        currentTree.addWeight(ch,1)
+        let chCode = currentTree.findLeaf(ch).code
+        decode.push(chCode)
+    }
+
     document.getElementById("out").innerHTML = decode.toString().replaceAll(","," ")
     buildTrees(LeavesToNodes(currentTree.getNodes()), currentTree.getConections(), document.getElementById("mynetwork1"))
     currentTree.balancing()

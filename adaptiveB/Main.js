@@ -15,7 +15,7 @@ function reset() {
 function main() { 
     if(code.length <= 0) return
     if(!currentTree) {
-        code = document.getElementById("in").value.replaceAll("'","")
+        code = document.getElementById("in").value.replaceAll("'","").replaceAll("’","")
         currentTree = new Tree(new Leaf(code[0],1))
         char.push(code[0])
         decode.push(`${code[0]}`)
@@ -33,7 +33,7 @@ function main() {
         currentTree.addLeaf(new Leaf(leaf, 1))
     }
     
-    document.getElementById("out").innerHTML = decode.toString().replaceAll(","," ")
+    document.getElementById("out").innerHTML = decode.toString().replaceAll(","," ").replaceAll("’","")
     buildTrees(LeavesToNodes(currentTree.getNodes()), currentTree.getConections(), document.getElementById("mynetwork2"))
     currentTree.balancing()
     buildTrees(LeavesToNodes(currentTree.getNodes()), currentTree.getConections(), document.getElementById("mynetwork1"))
